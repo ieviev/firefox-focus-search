@@ -1,0 +1,25 @@
+{
+    "name": "firefox-focus-search",
+    "description": "focuses the search input with keybind",
+    "manifest_version": 2,
+    "version": "1.0",
+    "homepage_url": null,
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "main.fs.js"
+            ]
+        }
+    ],
+    "commands": {
+        "focus-search": {
+            "suggested_key": {
+                "default": "Alt+Q"
+            },
+            "description": "Focus the search bar"
+        }
+    }
+}
