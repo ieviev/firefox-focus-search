@@ -29,3 +29,16 @@
 - youtube
 - youtube music
 - *.fandom.org
+
+
+#### development
+
+dependencies
+- at least dotnet-sdk 5.0
+- at least node.js 18
+
+installing tools and compiling fsx to js:
+```
+npm run install
+npm run publish
+```

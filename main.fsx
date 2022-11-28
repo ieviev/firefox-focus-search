@@ -17,8 +17,7 @@ let queries =
       "span.ytmusic-search-box" 
       "input.js-header-search-field" 
       "input[role=\"search\"]" 
-      
-    ] // ms azure
+    ] 
 
 let nodelist2seq (nl: NodeListOf<Element>) =
     seq {
@@ -31,17 +30,14 @@ let isVisible (elem:Element) =
     || elem?offsetHeight 
     || elem.getClientRects()?length
 
-let sendClickEvent (elem:Element) =
-    let ev = Event.Create("click",null)
-    elem.dispatchEvent(ev) |> ignore
-
-console.log ("hi")
+// let sendClickEvent (elem:Element) =
+//     let ev = Event.Create("click",null)
+//     elem.dispatchEvent(ev) |> ignore
 
 let rec focusSearch (queries: string list) (elem: 't option) =
     match queries with
     | [] -> None
     | head :: tail ->
-        console.log ($"selector: {head}")
         document.querySelectorAll (head)
         |> nodelist2seq
         |> Seq.tryFind isVisible
@@ -50,25 +46,17 @@ let rec focusSearch (queries: string list) (elem: 't option) =
 document.onkeydown <-
     (fun key ->
         if key.altKey && key.key = "q" then
-
-            let all = document.querySelectorAll ("input[type=\"search\"]")
-            console.log (all)
-
             let foundOpt = focusSearch queries None
-            console.log foundOpt
-
+            // console.log foundOpt
             foundOpt
             |> Option.map (fun f -> f :?> HTMLElement)
             |> Option.iter (fun f ->
                 key.preventDefault ()
-
                 match f.nodeName with
                 | "INPUT" -> f.focus ()
                 | "A" -> f.click ()
                 // | n -> sendClickEvent f 
-                | n -> 
-                    console.log $"clicking {f}"
-                    sendClickEvent f
+                | n -> f.click()
             )
 
         else
