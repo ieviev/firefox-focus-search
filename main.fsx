@@ -12,7 +12,7 @@ let queries =
       "input[placeholder=\"Filter by title\"]"
       "form[role=\"search\"] input.width-full"
       "form[role=\"search\"] input"
-      "form[action=\"search.html\"] input"
+      "form[id=\"rtd-search-form\"] input"
       ".global-navigation__search"
       "#algoliaSearch"
       "input[type=\"search\"]"

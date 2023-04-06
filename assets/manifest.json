@@ -2,7 +2,7 @@
     "name": "focus-search",
     "description": "focuses the search input with alt+q (option+q on mac) on most websites",
     "manifest_version": 2,
-    "version": "1.5",
+    "version": "1.6",
     "homepage_url": "https://github.com/aciq/firefox-focus-search",
     "content_scripts": [
         {
