@@ -10,31 +10,32 @@ https://addons.mozilla.org/en-US/firefox/addon/focus-search/
 - press alt+q to focus the search bar on any website
 
 #### tested with:
+- *.fandom.org
 - amazon
-- developer.mozilla.org
 - dblp.org
+- developer.mozilla.org
 - fb messenger
 - github
 - gmail
 - google
 - google drive
 - hackerone
+- mankier
 - ms azure
 - ms docs
 - nuget.org
 - outlook
+- pytorch.org/docs
 - reddit
 - rosetta code
-- stackoverflow
 - scholar.google.com
+- stackoverflow
 - twitter
 - udemy
 - w3schools
 - wikipedia
 - youtube
-- mankier
 - youtube music
-- *.fandom.org
 
 
 #### development
