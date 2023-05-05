@@ -5,11 +5,12 @@
   "main": "main.fs.js",
   "scripts": {
     "install": "dotnet tool restore",
-    "publish": "fable; vite build",
-    "start": "fable watch --sourceMaps --runWatch vite build",
-    "web-ext": "web-ext run -s dist"
+    "publish": "dotnet fable; npx vite build",
+    "start": "dotnet fable watch --sourceMaps --runWatch vite build",
+    "web-ext": "web-ext run -s dist",
+    "pack-source": "zip -r firefox-focus-search.zip . -x \"node_modules/*\" \"fable_modules/*\" \".git/*\""
   },
-  "author": "aciq",
+  "author": "ieviev",
   "private": true,
   "license": "MIT",
   "devDependencies": {

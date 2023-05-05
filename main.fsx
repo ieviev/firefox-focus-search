@@ -24,6 +24,7 @@ let queries =
       "input.js-header-search-field"
       "input[role=\"search\"]" 
       "input[autocomplete=\"off\"]" 
+      "textarea[data-id=\"root\"]" 
   ]
 
 let nodelist2seq (nl: NodeListOf<Element>) =
@@ -51,18 +52,27 @@ let rec focusSearch (queries: string list) =
 document.onkeydown <-
     (fun key ->
         if key.altKey && key.code = "KeyQ" then
+            // focus bing ai shadow dom properly
+            if document.URL.StartsWith("https://www.bing.com/search?q=Bing+AI") then
+                let elem = 
+                    document.querySelector(".cib-serp-main")
+                        .shadowRoot.querySelector("#cib-action-bar-main")
+                        .shadowRoot.querySelector(".main-container") :?> HTMLElement
+                elem.click()
+            else
+            
             let foundOpt = focusSearch queries
             console.log foundOpt
             foundOpt
             |> Option.map (fun f -> f :?> HTMLElement)
             |> Option.iter (fun f ->
                 key.preventDefault ()
-
                 match f.nodeName with
                 | "INPUT" -> f.focus ()
                 | "A" -> f.click ()
+                | "TEXTAREA" -> f.focus()
                 // | n -> sendClickEvent f
-                | n -> f.click ())
+                | n -> f.focus ())
 
         else
             ())

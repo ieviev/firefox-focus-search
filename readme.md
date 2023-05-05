@@ -36,6 +36,8 @@ https://addons.mozilla.org/en-US/firefox/addon/focus-search/
 - wikipedia
 - youtube
 - youtube music
+- chatgpt text prompt
+- bing ai text prompt
 
 
 #### development
@@ -49,3 +51,4 @@ installing tools and compiling fsx to js:
 npm run install
 npm run publish
 ```
+after that the javascript output is dist/
