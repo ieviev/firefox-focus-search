@@ -62,7 +62,7 @@ document.onkeydown <-
             else
             
             let foundOpt = focusSearch queries
-            console.log foundOpt
+            // console.log foundOpt
             foundOpt
             |> Option.map (fun f -> f :?> HTMLElement)
             |> Option.iter (fun f ->
