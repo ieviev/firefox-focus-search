@@ -48,7 +48,7 @@ dependencies
 
 installing tools and compiling fsx to js:
 ```
-npm run install
+npm install
 npm run publish
 ```
 after that the javascript output is dist/
